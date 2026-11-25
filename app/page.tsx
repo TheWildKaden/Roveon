@@ -1,5 +1,5 @@
-import { Workspace } from "@/components/workspace";
+import { RealWorkspace } from "@/components/real-workspace";
 
 export default function Home() {
-  return <Workspace />;
+  return <RealWorkspace />;
 }
