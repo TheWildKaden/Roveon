@@ -18,11 +18,14 @@ Roveon uses npm with the committed `package-lock.json`; `npm ci` installs the ex
 npm run lint
 npm run build
 npx tsc --noEmit
+npm run docs:architecture
 ```
 
 `npm run lint` uses ESLint with the Next.js ruleset. The production build performs Next.js compilation, type validation, and static generation. Run the build before the standalone `tsc` command because `tsconfig.json` includes generated `.next/types` declarations.
 
 There is currently no test script, test directory, or test runner configured in this repository. Do not report unit or integration tests as passing; add a test runner and tests when that becomes part of the product.
+
+`npm run docs:architecture` regenerates `docs/architecture.md` and its Mermaid source dependency graph from the TypeScript files under `app/`, `components/`, and `lib/`.
 
 ## Environment quirks
 
