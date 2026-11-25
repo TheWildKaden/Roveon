@@ -5,3 +5,5 @@ out/
 !.env.example
 *.log
 *.tsbuildinfo
+release/
+out/

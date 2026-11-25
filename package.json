@@ -2,12 +2,15 @@
   "name": "roveon",
   "version": "0.1.0",
   "private": true,
+  "main": "desktop/main.cjs",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "docs:architecture": "node scripts/generate-architecture.mjs"
+    "docs:architecture": "node scripts/generate-architecture.mjs",
+    "desktop": "npm run build && electron .",
+    "package:win": "npm run build && electron-builder --win nsis"
   },
   "dependencies": {
     "@monaco-editor/react": "^4.7.0",
@@ -21,6 +24,8 @@
     "@types/node": "^22.10.5",
     "@types/react": "^19.0.3",
     "@types/react-dom": "^19.0.2",
+    "electron": "^45.5.0",
+    "electron-builder": "^26.18.0",
     "eslint": "^9.39.5",
     "eslint-config-next": "^16.4.6",
     "typescript": "^5.7.2"
