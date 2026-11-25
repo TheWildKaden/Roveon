@@ -7,6 +7,7 @@ const Editor = dynamic(() => import("@monaco-editor/react"), { ssr: false });
 type OpenFile = { handle: FileSystemFileHandle; text: string; saved: string; modified: number };
 const extensions = new Set(["ts", "tsx", "js", "jsx", "json", "css", "html", "md", "py", "sql", "rs", "java", "c", "cpp", "go", "php", "yaml", "yml", "sh", "txt"]);
 type Directory = FileSystemDirectoryHandle & { entries(): AsyncIterable<[string, FileSystemHandle]> };
+declare global { interface Window { showDirectoryPicker(options?: { mode?: "read" | "readwrite" }): Promise<FileSystemDirectoryHandle> } }
 async function scan(dir: Directory, prefix = "", depth = 0): Promise<string[]> {
   const result: string[] = [];
   for await (const [name, handle] of dir.entries()) {
